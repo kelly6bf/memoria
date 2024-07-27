@@ -40,6 +40,10 @@ dependencies {
     // H2
     runtimeOnly 'com.h2database:h2'
 
+    // Swagger
+    // Swagger
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+
     // Test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
