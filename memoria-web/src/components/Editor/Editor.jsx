@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import "./Editor.css";
 import {emotionList, getFormattedDate} from "../../util/util";
-import Button from "../button/Button";
+import Button from "../Button/Button";
 import {useNavigate} from "react-router-dom";
-import EmotionItem from "../emotionItem/EmotionItem";
+import EmotionItem from "../EmotionItem/EmotionItem";
 
 export default function ({ initData, onSubmit }) {
   const navigate = useNavigate();
