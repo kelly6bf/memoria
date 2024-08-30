@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Button from "../Button/Button";
 import "./DiaryList.css";
+import {useNavigate} from "react-router-dom";
 
 const sortOptionList = [
   {value: "latest", name: "최신순"},
@@ -9,9 +10,28 @@ const sortOptionList = [
 
 export default function DiaryList({data}) {
   const [sortType, setSortType] = useState("latest");
+  const [sortedData, setSortedData] = useState([]);
+
+  useEffect(() => {
+    const compare = (a, b) => {
+      if (sortType === "latest") {
+        return Number(b.date) - Number(a.date);
+      } else {
+        return Number(a.date) - Number(b.date);
+      }
+    };
+    const copyList = JSON.parse(JSON.stringify(data));
+    copyList.sort(compare);
+    setSortedData(copyList);
+  }, [data, sortType]);
+
+  const navigate = useNavigate();
 
   const onChangeSortType = (e) => {
     setSortType(e.target.value);
+  };
+  const onClickNew = () => {
+    navigate("/diaries/new");
   };
 
   return (
@@ -28,7 +48,11 @@ export default function DiaryList({data}) {
             </select>
           </div>
           <div className="right_col">
-            <Button type={"positive"} text={"새 일기 쓰기"}/>
+            <Button
+              type={"positive"}
+              text={"새 일기 쓰기"}
+              onClick={onClickNew}
+            />
           </div>
         </div>
       </div>
