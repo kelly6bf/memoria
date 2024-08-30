@@ -95,11 +95,13 @@ function App() {
   }
 
   return (
-    <DiaryStateContext.Provider value={data}>
-      <DiaryDispatchContext.Provider value={{onCreate, onUpdate, onDelete}}>
-        <Outlet />
-      </DiaryDispatchContext.Provider>
-    </DiaryStateContext.Provider>
+    <div className="App">
+      <DiaryStateContext.Provider value={data}>
+        <DiaryDispatchContext.Provider value={{onCreate, onUpdate, onDelete}}>
+          <Outlet/>
+        </DiaryDispatchContext.Provider>
+      </DiaryStateContext.Provider>
+    </div>
   );
 }
 
