@@ -4,6 +4,7 @@ import useDiary from "../hooks/useDiary";
 import {getFormattedDate} from "../util/util";
 import Header from "../components/Header/Header";
 import Button from "../components/Button/Button";
+import Viewer from "../components/Viewer/Viewer";
 
 export default function Diary() {
   const { diaryId } = useParams();
@@ -32,6 +33,7 @@ export default function Diary() {
           leftChild={<Button text={"< 뒤로 가기"} onClick={goBack} />}
           rightChild={<Button text={"수정하기"} onClick={goEdit} />}
         />
+        <Viewer content={content} emotionId={emotionId}/>
       </div>
     </>
   );
