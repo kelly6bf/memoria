@@ -34,6 +34,7 @@ function reducer(state, action) {
       return [action.data, ...state]
     }
     case "UPDATE": {
+      console.log(action.data);
       return state.map((it) =>
         String(it.id) === String(action.data.id) ? {...action.data} : it);
     }
