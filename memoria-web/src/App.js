@@ -31,7 +31,7 @@ function reducer(state, action) {
       return action.data;
     }
     case "CREATE": {
-      return [action.date, ...state]
+      return [action.data, ...state]
     }
     case "UPDATE": {
       return state.map((it) =>
