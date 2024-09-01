@@ -5,6 +5,10 @@ import "./Viewer.css";
 export default function Viewer({content, emotionId}) {
   const emotionItem = emotionList.find((it) => it.id === emotionId);
 
+  if (!emotionItem) {
+    return <div>일기 정보를 불러오는 중...</div>;
+  }
+
   return (
     <>
       <div className="Viewer">

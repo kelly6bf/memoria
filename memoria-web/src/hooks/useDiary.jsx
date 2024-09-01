@@ -5,8 +5,7 @@ import {useNavigate} from "react-router-dom";
 const useDiary = (id) => {
   const data = useContext(DiaryStateContext);
   const [diary, setDiary] = useState([]);
-
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const matchDiary = data.find((it) => String(it.id) === String(id));
