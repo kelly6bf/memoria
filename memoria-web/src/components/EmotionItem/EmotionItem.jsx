@@ -1,7 +1,7 @@
 import React from "react";
 import "./EmotionItem.css";
 
-export default function EmotionItem({ id, img, name, onClick, isSelected }) {
+export default React.memo(function EmotionItem({id, img, name, onClick, isSelected}) {
   const handleOnClick = () => {
     onClick(id);
   };
@@ -12,9 +12,9 @@ export default function EmotionItem({ id, img, name, onClick, isSelected }) {
           .join(" ")}
         onClick={handleOnClick}
       >
-        <img alt={`emotion${id}`} src={img} />
+        <img alt={`emotion${id}`} src={img}/>
         <span>{name}</span>
       </div>
     </>
   );
-}
+});

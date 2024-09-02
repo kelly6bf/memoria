@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {getEmotionImageById} from "../../util/util";
 import Button from "../Button/Button";
 
-export default function DiaryItem({id, emotionId, content, date}) {
+export default React.memo(function DiaryItem({id, emotionId, content, date}) {
   const navigate = useNavigate();
   const goDetail = () => {
     navigate(`/diaries/${id}`);
@@ -26,9 +26,9 @@ export default function DiaryItem({id, emotionId, content, date}) {
           <div className="content_wrapper">{content.slice(0, 25)}</div>
         </div>
         <div className="button_section">
-          <Button onClick={goEdit} text={"수정하기"} />
+          <Button onClick={goEdit} text={"수정하기"}/>
         </div>
       </div>
     </>
   );
-}
+});
